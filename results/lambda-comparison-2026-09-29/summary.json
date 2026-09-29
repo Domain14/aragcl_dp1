@@ -1,0 +1,235 @@
+{
+  "protocol_note": "Validation-only: each checkpoint is selected by maximum validation F1 (first epoch wins ties), then scored on the same validation partition. No independent test set. Seeds vary optimization/augmentation, not the fixed stratified 80/20 split. This is not five-fold cross-validation. Identical text identifies inferred content duplicates, not verified reshares.",
+  "models": {
+    "lambda_0": {
+      "accuracy": {
+        "n": 5,
+        "mean": 0.758,
+        "sample_sd": 0.004472135954999583
+      },
+      "precision": {
+        "n": 5,
+        "mean": 0.7411938294826506,
+        "sample_sd": 0.011896408653624181
+      },
+      "recall": {
+        "n": 5,
+        "mean": 0.7111111111111111,
+        "sample_sd": 0.02721655269759086
+      },
+      "f1": {
+        "n": 5,
+        "mean": 0.7254499600094245,
+        "sample_sd": 0.009724057049777553
+      },
+      "fbeta": {
+        "n": 5,
+        "mean": 0.7166863842301959,
+        "sample_sd": 0.020097937450780094
+      }
+    },
+    "lambda_0p1": {
+      "accuracy": {
+        "n": 5,
+        "mean": 0.764,
+        "sample_sd": 0.01140175425099139
+      },
+      "precision": {
+        "n": 5,
+        "mean": 0.7544782349433512,
+        "sample_sd": 0.02504112407090607
+      },
+      "recall": {
+        "n": 5,
+        "mean": 0.7066666666666667,
+        "sample_sd": 0.018592445034090556
+      },
+      "f1": {
+        "n": 5,
+        "mean": 0.7293954321540528,
+        "sample_sd": 0.010188448108184287
+      },
+      "fbeta": {
+        "n": 5,
+        "mean": 0.7155007197135091,
+        "sample_sd": 0.013308449864928861
+      }
+    },
+    "lambda_0p25": {
+      "accuracy": {
+        "n": 5,
+        "mean": 0.766,
+        "sample_sd": 0.015165750888103114
+      },
+      "precision": {
+        "n": 5,
+        "mean": 0.753095238095238,
+        "sample_sd": 0.024514047474000912
+      },
+      "recall": {
+        "n": 5,
+        "mean": 0.7155555555555556,
+        "sample_sd": 0.024343224778007374
+      },
+      "f1": {
+        "n": 5,
+        "mean": 0.7334685598377282,
+        "sample_sd": 0.015917843905345033
+      },
+      "fbeta": {
+        "n": 5,
+        "mean": 0.7225307125307125,
+        "sample_sd": 0.0196918079343851
+      }
+    },
+    "lambda_0p5": {
+      "accuracy": {
+        "n": 5,
+        "mean": 0.766,
+        "sample_sd": 0.015165750888103114
+      },
+      "precision": {
+        "n": 5,
+        "mean": 0.7550506810262908,
+        "sample_sd": 0.019174614827365464
+      },
+      "recall": {
+        "n": 5,
+        "mean": 0.7111111111111111,
+        "sample_sd": 0.031426968052735434
+      },
+      "f1": {
+        "n": 5,
+        "mean": 0.7320727905156998,
+        "sample_sd": 0.019573806593352696
+      },
+      "fbeta": {
+        "n": 5,
+        "mean": 0.7192726047137811,
+        "sample_sd": 0.026231048112522862
+      }
+    }
+  },
+  "paired_f1_differences": [
+    {
+      "direction": "lambda_0 minus lambda_0p1",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "differences": [
+        -0.008359456635318674,
+        0.0,
+        0.005797101449275477,
+        -0.017165005537098543,
+        0.0
+      ],
+      "n": 5,
+      "mean": -0.003945472144628348,
+      "sample_sd": 0.008948331734454721
+    },
+    {
+      "direction": "lambda_0 minus lambda_0p25",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "differences": [
+        -0.008359456635318674,
+        0.0015325670498084198,
+        -0.016425120772946777,
+        -0.00848153214774272,
+        -0.008359456635318674
+      ],
+      "n": 5,
+      "mean": -0.008018599828303686,
+      "sample_sd": 0.006370656484704438
+    },
+    {
+      "direction": "lambda_0 minus lambda_0p5",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "differences": [
+        -0.036772216547497405,
+        0.0,
+        0.005797101449275477,
+        -0.00848153214774272,
+        0.00634249471458781
+      ],
+      "n": 5,
+      "mean": -0.006622830506275368,
+      "sample_sd": 0.017879153379234312
+    },
+    {
+      "direction": "lambda_0p1 minus lambda_0p25",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "differences": [
+        0.0,
+        0.0015325670498084198,
+        -0.022222222222222254,
+        0.008683473389355822,
+        -0.008359456635318674
+      ],
+      "n": 5,
+      "mean": -0.004073127683675337,
+      "sample_sd": 0.011816379542395792
+    },
+    {
+      "direction": "lambda_0p1 minus lambda_0p5",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "differences": [
+        -0.02841275991217873,
+        0.0,
+        0.0,
+        0.008683473389355822,
+        0.00634249471458781
+      ],
+      "n": 5,
+      "mean": -0.00267735836164702,
+      "sample_sd": 0.01489189071400883
+    },
+    {
+      "direction": "lambda_0p25 minus lambda_0p5",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "differences": [
+        -0.02841275991217873,
+        -0.0015325670498084198,
+        0.022222222222222254,
+        0.0,
+        0.014701951349906484
+      ],
+      "n": 5,
+      "mean": 0.0013957693220283175,
+      "sample_sd": 0.0194285058713771
+    }
+  ]
+}

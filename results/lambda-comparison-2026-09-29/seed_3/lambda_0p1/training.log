@@ -1,0 +1,31 @@
+Seed 3, model lambda_0p1, initial state e0145b6d44403e0019aa93c0d3002bbbffdc16bb664ab091edd66f6baf3ed99b
+
+=== Contrastive Pretraining: ARAGCL-DP (copies to reference; lambda=0.1) ===
+Pretrain Epoch 0, Contrastive Loss 2.3571
+Pretrain Epoch 1, Contrastive Loss 1.5671
+Pretrain Epoch 2, Contrastive Loss 1.3725
+Pretrain Epoch 3, Contrastive Loss 1.2492
+Pretrain Epoch 4, Contrastive Loss 1.1869
+Pretrain Epoch 5, Contrastive Loss 1.1758
+Pretrain Epoch 6, Contrastive Loss 1.1718
+Pretrain Epoch 7, Contrastive Loss 1.1413
+Pretrain Epoch 8, Contrastive Loss 1.1319
+Pretrain Epoch 9, Contrastive Loss 1.1094
+Pretrain Epoch 10, Contrastive Loss 1.0836
+Pretrain Epoch 11, Contrastive Loss 1.1092
+Pretrain Epoch 12, Contrastive Loss 1.1333
+Pretrain Epoch 13, Contrastive Loss 1.1314
+Pretrain Epoch 14, Contrastive Loss 1.1135
+
+=== Training ARAGCL-DP (copies to reference; lambda=0.1) ===
+Epoch 0, Train Loss 0.6899, Val Loss 0.6620, Precision 0.857, Recall 0.133, F1 0.231, Fβ 0.160
+Epoch 1, Train Loss 0.6115, Val Loss 0.5676, Precision 0.909, Recall 0.444, F1 0.597, Fβ 0.495
+Epoch 2, Train Loss 0.4393, Val Loss 0.4967, Precision 0.795, Recall 0.689, F1 0.738, Fβ 0.708
+Epoch 3, Train Loss 0.2875, Val Loss 0.5334, Precision 0.732, Recall 0.667, F1 0.698, Fβ 0.679
+Epoch 4, Train Loss 0.1715, Val Loss 0.6363, Precision 0.737, Recall 0.622, F1 0.675, Fβ 0.642
+Epoch 5, Train Loss 0.0914, Val Loss 0.7620, Precision 0.771, Recall 0.600, F1 0.675, Fβ 0.628
+Epoch 6, Train Loss 0.0621, Val Loss 0.9122, Precision 0.750, Recall 0.533, F1 0.623, Fβ 0.566
+Epoch 7, Train Loss 0.0414, Val Loss 0.9409, Precision 0.674, Recall 0.644, F1 0.659, Fβ 0.650
+Epoch 8, Train Loss 0.0326, Val Loss 1.0979, Precision 0.574, Recall 0.689, F1 0.626, Fβ 0.662
+Early stopping at epoch 8 (best F1=0.738)
+Restored best checkpoint (val F1=0.738) -- returned model is NOT the last epoch's weights.

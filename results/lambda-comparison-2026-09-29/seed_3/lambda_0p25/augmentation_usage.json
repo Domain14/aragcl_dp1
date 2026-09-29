@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "count_units": "Pooled node/edge exposures across observed views, batches and epochs; not unique posts.",
+  "attribute_mask_definition": "Actual sampled mask decisions after root protection, including decisions on dropped nodes; surviving_masked counts exclude dropped nodes. Zero input features alone do not imply masking.",
+  "edge_removal_definition": "Combined removal from node deletion and relation-specific edge dropout, relative to each original graph relation.",
+  "counts": {
+    "view_count": 1500,
+    "original_nodes": 744600,
+    "original_roots": 12000,
+    "original_nonroots": 732600,
+    "surviving_nodes": 646863,
+    "surviving_roots": 12000,
+    "surviving_nonroots": 634863,
+    "dropped_nodes": 97737,
+    "dropped_roots": 0,
+    "dropped_nonroots": 97737,
+    "views_with_attribute_mask": 1500,
+    "attribute_observed_original_nodes": 744600,
+    "attribute_observed_original_roots": 12000,
+    "attribute_observed_original_nonroots": 732600,
+    "attribute_observed_surviving_nodes": 646863,
+    "attribute_observed_surviving_nonroots": 634863,
+    "attribute_masks_sampled": 98178,
+    "attribute_masks_sampled_roots": 0,
+    "attribute_masks_sampled_nonroots": 98178,
+    "surviving_masked_nodes": 84843,
+    "surviving_masked_nonroots": 84843,
+    "reply_edges_before": 732600,
+    "reply_edges_after": 506017,
+    "reply_edges_removed": 226583,
+    "duplication_edges_before": 25560,
+    "duplication_edges_after": 17457,
+    "duplication_edges_removed": 8103
+  },
+  "rates": {
+    "node_drop_all_nodes": {
+      "numerator_count": "dropped_nodes",
+      "denominator_count": "original_nodes",
+      "numerator": 97737,
+      "denominator": 744600,
+      "value": 0.1312610797743755
+    },
+    "node_drop_nonroots": {
+      "numerator_count": "dropped_nonroots",
+      "denominator_count": "original_nonroots",
+      "numerator": 97737,
+      "denominator": 732600,
+      "value": 0.1334111384111384
+    },
+    "node_drop_roots": {
+      "numerator_count": "dropped_roots",
+      "denominator_count": "original_roots",
+      "numerator": 0,
+      "denominator": 12000,
+      "value": 0.0
+    },
+    "attribute_mask_sampled_all_nodes": {
+      "numerator_count": "attribute_masks_sampled",
+      "denominator_count": "attribute_observed_original_nodes",
+      "numerator": 98178,
+      "denominator": 744600,
+      "value": 0.13185334407735697
+    },
+    "attribute_mask_sampled_nonroots": {
+      "numerator_count": "attribute_masks_sampled_nonroots",
+      "denominator_count": "attribute_observed_original_nonroots",
+      "numerator": 98178,
+      "denominator": 732600,
+      "value": 0.134013104013104
+    },
+    "attribute_mask_sampled_roots": {
+      "numerator_count": "attribute_masks_sampled_roots",
+      "denominator_count": "attribute_observed_original_roots",
+      "numerator": 0,
+      "denominator": 12000,
+      "value": 0.0
+    },
+    "attribute_mask_surviving_all_nodes": {
+      "numerator_count": "surviving_masked_nodes",
+      "denominator_count": "attribute_observed_surviving_nodes",
+      "numerator": 84843,
+      "denominator": 646863,
+      "value": 0.1311606939954828
+    },
+    "attribute_mask_surviving_nonroots": {
+      "numerator_count": "surviving_masked_nonroots",
+      "denominator_count": "attribute_observed_surviving_nonroots",
+      "numerator": 84843,
+      "denominator": 634863,
+      "value": 0.13363985615794274
+    },
+    "reply_edge_removal": {
+      "numerator_count": "reply_edges_removed",
+      "denominator_count": "reply_edges_before",
+      "numerator": 226583,
+      "denominator": 732600,
+      "value": 0.3092861042861043
+    },
+    "duplication_edge_removal": {
+      "numerator_count": "duplication_edges_removed",
+      "denominator_count": "duplication_edges_before",
+      "numerator": 8103,
+      "denominator": 25560,
+      "value": 0.317018779342723
+    }
+  }
+}

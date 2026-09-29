@@ -1,0 +1,51 @@
+{
+  "model": "lambda_0p1",
+  "label": "ARAGCL-DP (copies to reference; lambda=0.1)",
+  "seed": 0,
+  "split_seed": 0,
+  "metrics": {
+    "accuracy": 0.77,
+    "precision": 0.7619047619047619,
+    "recall": 0.7111111111111111,
+    "f1": 0.735632183908046,
+    "fbeta": 0.7207207207207207
+  },
+  "validation_loss": 0.5367264556884765,
+  "best_epoch": 2,
+  "epochs_completed": 9,
+  "initial_state_sha256": "acba4f01db63e4d523ed28657f1f767e2ba982553455dcfb432b5061f86a72b3",
+  "trained_state_sha256": "27acd35632c2b9b9a709bb5d3be670233513b2d3770b415e904ff6a36e5e4b5e",
+  "rng_stage_seeds": {
+    "initialization": 1757213079,
+    "pretrain": 1323120098,
+    "finetune": 386519650,
+    "evaluation": 2643927750
+  },
+  "model_config": {
+    "in_dim": 512,
+    "hidden_dim": 64,
+    "num_layers": 2,
+    "lam": 0.1,
+    "use_duplication": true,
+    "backbone": "gcn",
+    "heads": 2,
+    "view_strategy": "duplication_aware",
+    "tau": 0.5,
+    "unsup_weight": 1.0,
+    "num_classes": 2,
+    "p_n": 0.2,
+    "p_e": 0.2,
+    "p_m": 0.2,
+    "epsilon": 0.0,
+    "centrality_key": "Degree",
+    "dropout": 0.3,
+    "duplicate_message_direction": "copy_to_reference"
+  },
+  "graph_construction": {
+    "representation": "duplication",
+    "duplicate_policy": "none"
+  },
+  "runtime_seconds": 23.242511371150613,
+  "protocol_note": "Validation-only: each checkpoint is selected by maximum validation F1 (first epoch wins ties), then scored on the same validation partition. No independent test set. Seeds vary optimization/augmentation, not the fixed stratified 80/20 split. This is not five-fold cross-validation. Identical text identifies inferred content duplicates, not verified reshares.",
+  "augmentation_trace_sha256": "3ecb1c84a119c895c05cc968f8f4b6f56f1c987e3a8d22d36aa698917f9c43d0"
+}

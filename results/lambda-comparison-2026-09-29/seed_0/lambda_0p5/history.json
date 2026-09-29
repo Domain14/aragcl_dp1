@@ -1,0 +1,113 @@
+{
+  "pretrain_loss": [
+    2.328070890903473,
+    1.5562333488464355,
+    1.3692659282684325,
+    1.2569284772872924,
+    1.1960972118377686,
+    1.1620623517036437,
+    1.1529868698120118,
+    1.1583613109588624,
+    1.165739085674286,
+    1.1159498071670533,
+    1.0727842462062835,
+    1.0546349465847016,
+    1.0539310932159425,
+    1.0575215578079225,
+    1.0661084175109863
+  ],
+  "finetune": [
+    {
+      "epoch": 0,
+      "accuracy": 0.59,
+      "precision": 0.6666666666666666,
+      "recall": 0.17777777777777778,
+      "f1": 0.2807017543859649,
+      "fbeta": 0.20833333333333334,
+      "train_loss_logged": 0.6683,
+      "validation_loss_logged": 0.6459
+    },
+    {
+      "epoch": 1,
+      "accuracy": 0.73,
+      "precision": 0.7368421052631579,
+      "recall": 0.6222222222222222,
+      "f1": 0.6746987951807228,
+      "fbeta": 0.6422018348623854,
+      "train_loss_logged": 0.5701,
+      "validation_loss_logged": 0.5642
+    },
+    {
+      "epoch": 2,
+      "accuracy": 0.79,
+      "precision": 0.7727272727272727,
+      "recall": 0.7555555555555555,
+      "f1": 0.7640449438202247,
+      "fbeta": 0.7589285714285713,
+      "train_loss_logged": 0.4018,
+      "validation_loss_logged": 0.5363
+    },
+    {
+      "epoch": 3,
+      "accuracy": 0.73,
+      "precision": 0.7142857142857143,
+      "recall": 0.6666666666666666,
+      "f1": 0.689655172413793,
+      "fbeta": 0.6756756756756757,
+      "train_loss_logged": 0.2401,
+      "validation_loss_logged": 0.606
+    },
+    {
+      "epoch": 4,
+      "accuracy": 0.71,
+      "precision": 0.7105263157894737,
+      "recall": 0.6,
+      "f1": 0.6506024096385543,
+      "fbeta": 0.6192660550458715,
+      "train_loss_logged": 0.1365,
+      "validation_loss_logged": 0.724
+    },
+    {
+      "epoch": 5,
+      "accuracy": 0.7,
+      "precision": 0.7142857142857143,
+      "recall": 0.5555555555555556,
+      "f1": 0.6250000000000001,
+      "fbeta": 0.5813953488372093,
+      "train_loss_logged": 0.0727,
+      "validation_loss_logged": 0.8701
+    },
+    {
+      "epoch": 6,
+      "accuracy": 0.71,
+      "precision": 0.7222222222222222,
+      "recall": 0.5777777777777777,
+      "f1": 0.6419753086419753,
+      "fbeta": 0.6018518518518519,
+      "train_loss_logged": 0.0346,
+      "validation_loss_logged": 0.9682
+    },
+    {
+      "epoch": 7,
+      "accuracy": 0.66,
+      "precision": 0.6122448979591837,
+      "recall": 0.6666666666666666,
+      "f1": 0.6382978723404255,
+      "fbeta": 0.6550218340611355,
+      "train_loss_logged": 0.0241,
+      "validation_loss_logged": 1.0362
+    },
+    {
+      "epoch": 8,
+      "accuracy": 0.72,
+      "precision": 0.7073170731707317,
+      "recall": 0.6444444444444445,
+      "f1": 0.6744186046511628,
+      "fbeta": 0.6561085972850679,
+      "train_loss_logged": 0.0194,
+      "validation_loss_logged": 1.1
+    }
+  ],
+  "loss_precision_note": "Fine-tuning losses are parsed from trainer logging (4 decimal places); per-epoch classification metrics and pretraining losses retain returned precision.",
+  "selected_epoch_zero_based": 2
+}
