@@ -1,0 +1,12 @@
+{
+  "date": "2026-09-27",
+  "scope": "Graph-masking regression tests, three-variant runner reproducibility, checkpoint and prediction consistency. CPU only.",
+  "tests_run": 37,
+  "passed": 36,
+  "skipped": 1,
+  "skip_reason": "CUDA unavailable",
+  "failures": 0,
+  "errors": 0,
+  "command": "python -m unittest discover -s tests -v",
+  "log_file": "masking-tests-2026-09-27.log"
+}

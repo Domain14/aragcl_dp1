@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-28",
+  "change": "Explicit duplicate-message direction and optional matched comparison variant",
+  "default": "reference_to_copy",
+  "alternative": "copy_to_reference",
+  "tests_run": 46,
+  "tests_passed": 45,
+  "tests_skipped": 1,
+  "skip_reason": "CUDA unavailable on this local CPU environment",
+  "tests_failed": 0,
+  "test_command": "python -m unittest discover -s tests -v",
+  "test_log": "work/code-review/duplicate-direction-tests-2026-09-28.log",
+  "tests_use": "Synthetic fixtures, not research performance results",
+  "new_real_data_training_performed": false,
+  "interpretation": "Correctness and experiment readiness verified; no accuracy or F1 benefit established."
+}

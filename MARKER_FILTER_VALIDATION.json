@@ -1,0 +1,53 @@
+{
+  "date": "2026-09-28",
+  "change": "Frozen exact Weibo marker duplicate-link filter; matched controls and actual augmentation diagnostics",
+  "tests_run": 57,
+  "tests_passed": 56,
+  "tests_skipped": 1,
+  "tests_failed": 0,
+  "skip_reason": "CUDA unavailable locally",
+  "full_suite_log": "work/code-review/marker-filter-tests-2026-09-28.log",
+  "strengthened_integration_checks_passed": 2,
+  "integration_log": "work/code-review/marker-filter-integration-2026-09-28.log",
+  "real_data_preflight": {
+    "scope": "Graph-only preflight on exact Paperspace cohort; no model training or new performance result.",
+    "raw_files_hash_verified": 500,
+    "split_and_batch_order_match_prior_manifest": true,
+    "tfidf_vocabulary_matches_prior": true,
+    "maximum_idf_difference": 0.0,
+    "prior_control_input_fingerprints_match": {
+      "train": true,
+      "validation": true,
+      "static_train": true,
+      "static_validation": true
+    }
+  },
+  "filter_counts": {
+    "train": {
+      "cascades": 400,
+      "nodes": 24820,
+      "reply_edges": 24420,
+      "duplicate_edges_before": 852,
+      "duplicate_edges_after": 597,
+      "duplicate_edges_removed": 255,
+      "nodes_with_changed_duplication_frequency": 81,
+      "cascades_with_removed_edges": 81,
+      "cascades_with_duplicates_before": 203,
+      "cascades_with_duplicates_after": 158
+    },
+    "validation": {
+      "cascades": 100,
+      "nodes": 5665,
+      "reply_edges": 5565,
+      "duplicate_edges_before": 204,
+      "duplicate_edges_after": 131,
+      "duplicate_edges_removed": 73,
+      "nodes_with_changed_duplication_frequency": 14,
+      "cascades_with_removed_edges": 14,
+      "cascades_with_duplicates_before": 42,
+      "cascades_with_duplicates_after": 36
+    }
+  },
+  "new_research_training_performed": false,
+  "interpretation": "Implementation and input preservation verified. No performance improvement is claimed before the planned Paperspace comparison."
+}
