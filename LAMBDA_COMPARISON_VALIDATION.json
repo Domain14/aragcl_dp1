@@ -1,0 +1,23 @@
+{
+  "date": "2026-09-29",
+  "tests_run": 66,
+  "tests_passed": 65,
+  "tests_skipped": 1,
+  "tests_failed": 0,
+  "skip_reason": "CUDA unavailable in local CPU environment",
+  "full_suite_log": "work/code-review/lambda-comparison-tests-2026-09-29.log",
+  "interpreter": "3.12.14",
+  "entrypoint_help_checked": true,
+  "verified": [
+    "Four fixed lambda values 0, 0.1, 0.25, 0.5 with five default training seeds",
+    "Unfiltered original graph, same copied initial model state and copy_to_reference messages for all four lambda variants",
+    "Actual ordered augmented-view fingerprints and aggregate usage match within a seed",
+    "Trace observer preserves random state, model outputs and gradients for GCN and GAT fixtures",
+    "Lambda 0 exactly reproduces existing no_dup_edges control trained state and predictions on fixture",
+    "Lambda 0.5 exactly reproduces existing copy_to_reference control trained state and predictions on fixture",
+    "Reversing variant execution order preserves fixture results",
+    "Deliberately altered trace rejects comparison and records failed manifest before affected variant fine-tuning",
+    "Legacy comparison command defaults preserved"
+  ],
+  "limitation": "Software validation on fabricated fixtures only. No full Weibo training or new research score produced locally. CUDA execution not verified."
+}

@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-15",
+  "unit_and_integration_checks": {
+    "main_suite_tests": 84,
+    "main_suite_skipped": 1,
+    "skip_reason": "CUDA device unavailable",
+    "additional_matching_runner_tests": 4,
+    "total_checks": 88,
+    "passed": 87,
+    "failed": 0
+  },
+  "coverage": [
+    "Literal exact and containment evidence",
+    "Non-transitive pair matching",
+    "Chronological edges and stable ties",
+    "One incoming stored link per post",
+    "Original features/reply graph unchanged",
+    "Same-environment matching_exact equals lambda_0p25 bit for bit on controlled fixture",
+    "Variant execution-order independence",
+    "Saved checkpoint replay and recomputed predictions",
+    "Original 400/100 cohort hashes, features, vocabulary and IDF preserved",
+    "Frozen manifest tampering is rejected"
+  ],
+  "environment": {
+    "python_environment": "Existing local model-venv312",
+    "torch": "2.2.2",
+    "torch_geometric": "2.6.1",
+    "numpy": "1.26.4",
+    "scikit_learn": "1.9.0",
+    "device": "cpu"
+  },
+  "limits": [
+    "Tests establish implementation properties, not performance improvement.",
+    "No CUDA run was executed.",
+    "Content eligibility remains exploratory; no human-labeled precision or verified repost provenance."
+  ],
+  "real_data_results": "See accompanying results manifest and report; all three variants are rerun in the same environment."
+}

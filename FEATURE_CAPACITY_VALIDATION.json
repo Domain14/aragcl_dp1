@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-15",
+  "tests": {
+    "existing_regression_suite": 88,
+    "additional_feature_tests": 4,
+    "passed": 91,
+    "skipped": 1,
+    "skip_reason": "CUDA unavailable",
+    "failed": 0
+  },
+  "verified": [
+    "Default512 reproduces prior frozen input fingerprints",
+    "Both vocabularies fit training text only",
+    "2048 changes features and input dimension while preserving reply and duplicate topology",
+    "Frozen raw hashes and ordered partitions remain enforced",
+    "Feature experiment records capacity-specific selected checkpoints, predictions and summaries",
+    "Paired statistics join by seed"
+  ],
+  "parameter_counts": {
+    "512": 45442,
+    "2048": 143746
+  },
+  "scope": "Implementation checks are complete. Real-data performance must be read from the accompanying completed feature experiment report; this file does not assert an improvement."
+}

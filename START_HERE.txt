@@ -1,0 +1,98 @@
+ARAGCL-DP IMPROVEMENT EXPERIMENTS — 15 OCTOBER 2026
+
+WHAT TO RUN ON PAPERSPACE
+
+Extract this code package into a NEW folder. Open a terminal in the extracted
+code folder (the folder containing this file), then run:
+
+    python run_feature_comparison.py
+
+It expects your existing raw JSON data at /storage/weibo1. For a different
+location, use:
+
+    python run_feature_comparison.py --dataset-dir /your/raw/json/folder
+
+Do not use run_all.py for these research results: it uses synthetic examples.
+
+This command compares 512 versus 2,048 character TF-IDF features, each with seeds
+0, 1, 2, 3, 4. The original exact matcher, lambda = 0.25, graph structure and training
+budget are retained. The larger vocabulary also increases input-layer parameters
+(45,442 total parameters at 512; 143,746 at 2,048). Initial tensors differ in shape,
+so seeds are paired but initial weights are not identical across capacities.
+Both feature vocabularies are fitted on the same training conversations only.
+
+It writes a new results/feature-capacity-YYYYMMDD-HHMMSS folder containing
+feature_summary.json, feature_seed_metrics.json, feature_protocol.json, and
+features_512 / features_2048 subfolders with full per-seed evidence.
+
+THE PRECEDING MATCHING EXPERIMENT
+
+The stricter matching alternatives did not improve local validation F1. To
+reproduce that research comparison separately, run:
+
+    python run_matching_comparison.py
+
+This command runs all three alternatives, each with seeds 0, 1, 2, 3, 4:
+  1. matching_exact: the existing normalized exact-text matching rule.
+  2. matching_filtered_exact: exact matches passing the content rule below.
+  3. matching_filtered_containment: the same filtered exact links, plus sparse
+     literal embedded-text links.
+
+All matching alternatives use lambda = 0.25, copy-to-reference messages, and
+the same 512 training-fitted TF-IDF features, matched initial weights, 15 pretraining epochs and at most
+25 fine-tuning epochs with early stopping. CPU and one thread are defaults.
+Graph changes affect adaptive augmentation, so sampled views are not identical
+between policies. This estimates the complete matching-policy effect.
+
+SAVED COHORT
+
+experiment_protocols/matching_cohort.json fixes the original 500 conversations
+and the ordered 400/100 split. Required raw file hashes, vocabulary, IDF and
+original graph/features are checked at 512 features. The explicit 2,048-feature capacity
+comparison preserves raw hashes and partitions while intentionally changing
+features, vocabulary and IDF. Additional JSONs in the data directory
+are ignored. A mismatch stops the comparison; do not bypass it by resampling
+or editing the manifest. Locate the original data instead.
+
+FROZEN EXPLORATORY CONTENT RULE (shared-content-v1)
+
+Normalize only by trimming outer whitespace and lowercasing. For eligibility,
+remove URLs, account attributions, paired #hashtags# and square-bracket emoji
+labels from a separate scoring copy. Require at least 20 alphanumeric Unicode
+characters (including Chinese characters), with at least 10 distinct ones.
+The original post text and model features are preserved.
+
+Exact matching compares complete normalized text. Containment requires the
+complete shorter normalized text to occur literally in the longer text, and
+the shorter text must pass the same eligibility rule. No fuzzy matching or
+automatic recovery of common internal fragments is performed.
+
+Keep all filtered exact-star links. For a node with no incoming exact link,
+add at most one containment link from its earliest preceding directly matching
+post. Timestamp ties use input order. This bounds graph density without
+inventing transitive equivalence. Stored earlier-to-later links are reversed
+for copy-to-reference message passing, as in the previous lambda experiment.
+
+These thresholds are exploratory choices from training-only inspection, not
+validated thresholds or human annotations. Short informative text can be lost,
+and long boilerplate can still pass. Shared text can occur in disagreement.
+The links do not identify verified repost sources or common stance.
+
+MATCHING RESULTS
+
+Each execution creates a new results/content-matching-YYYYMMDD-HHMMSS folder:
+  summary.json / seed_metrics.csv: mean scores, sample SD and paired differences.
+  content_matching_audit.json: edge counts, preserved-field checks, and
+    training-only edge evidence with filenames and matched passages.
+  matching_protocol.json: the fixed rule and interpretation limits.
+  manifest.json: source fingerprints, environment and exact dataset/split.
+  seed_N/policy/: predictions, histories, augmentation counts and checkpoint.
+
+Do not combine fresh scores with old scores as though environments matched.
+Compare the three freshly rerun controls. F1 is positive-class F1 for label 1;
+accuracy is separate. Five seeds share one split; this is not five-fold CV.
+The same validation set has guided earlier decisions, so an untouched test
+is still required for final claims. Retain all results even if a policy loses.
+
+The local development report, if included beside this code package, states
+the measured results. The command itself does not assume a winning policy.

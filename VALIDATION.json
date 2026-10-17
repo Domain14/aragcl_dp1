@@ -1,0 +1,29 @@
+{
+  "timestamp_utc": "2026-09-08T20:33:16.825860+00:00",
+  "scope": "Regression checks and real PyG training on fabricated JSON cascades only; no real-data retraining.",
+  "python": "3.12.14",
+  "platform": "Darwin",
+  "architecture": "x86_64",
+  "dependencies": {
+    "torch": "2.2.2",
+    "torch-geometric": "2.6.1",
+    "numpy": "1.26.4",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.17.1",
+    "networkx": "3.6.1",
+    "matplotlib": "3.11.1"
+  },
+  "tests_run": 22,
+  "failures": 0,
+  "errors": 0,
+  "skipped": [
+    {
+      "test": "test_augmentation_on_cuda_with_cpu_precomputed_scores (test_augmentation_probabilities.EffectiveViewTests.test_augmentation_on_cuda_with_cpu_precomputed_scores)",
+      "reason": "CUDA device unavailable"
+    }
+  ],
+  "passed": 21,
+  "elapsed_seconds": 410.666,
+  "cuda_verified": false,
+  "failure_details": []
+}
