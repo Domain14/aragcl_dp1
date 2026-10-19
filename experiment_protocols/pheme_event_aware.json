@@ -1,0 +1,41 @@
+{
+  "protocol_id": "pheme-loeo-duplication-v1",
+  "status": "pre-specified before model training",
+  "research_question": "Do inferred duplicate-content links improve binary rumor classification beyond observed reply structure when model, data, features, and training conditions are matched?",
+  "dataset": "PHEME all-rnr-annotated-threads",
+  "labels": {
+    "rumour": 1,
+    "nonrumour": 0,
+    "unclear": "exclude and report"
+  },
+  "outer_evaluation": "Leave one entire event out. Each conversation is test data exactly once. No conversation from the held-out event is used for training, validation, vocabulary fitting, checkpoint selection, or matching-rule decisions in that fold.",
+  "inner_validation": "Within the other events, reserve a stratified random 15% of conversations for checkpoint selection with split seed 20261019. The same train/validation membership is used for both graph conditions and all model seeds in that event fold.",
+  "primary_comparison": {
+    "reply_only": "Observed reply tree; no duplicate-content edges or duplicate metadata.",
+    "reply_plus_inferred_duplicates": "Same posts and reply tree plus within-conversation exact-text links between existing posts.",
+    "matching_rule": "Trim outer whitespace and lowercase; link complete non-empty exact text matches only. Do not add nodes, fuzzy matches, cross-conversation links, or verified-reshares claims.",
+    "edge_direction": "Earlier timestamp to later timestamp; input order breaks timestamp ties. If any post in a thread lacks a parseable created_at value, use deterministic structure traversal order for all posts in that thread. This is a computational convention, not verified provenance.",
+    "encoder_message_direction": "copy_to_reference",
+    "lambda": 0.25
+  },
+  "controlled_conditions": {
+    "architecture": "Same ARAGCL-DP GCN encoder and classifier for both graph conditions.",
+    "augmentation": "Uniform random augmentation for both conditions; no centrality-based intervention in this comparison.",
+    "augmentation_randomness_limit": "Both conditions use the same rates and stage seeds, but added duplicate edges consume additional edge-drop draws, so realized views need not be identical. The estimate is the total pipeline effect of including the links, not an edge-only intervention under identical sampled views.",
+    "features": "Character TF-IDF, character n-grams 1-2, maximum 2048 features; fit on inner training posts only within each outer fold.",
+    "contrastive_pretraining_epochs": 15,
+    "maximum_supervised_epochs": 25,
+    "early_stopping_patience": 6,
+    "batch_size": 8,
+    "seeds": [0, 1, 2, 3],
+    "matched_initialization": "Same initialized model weights per outer fold and seed across graph conditions.",
+    "training_order": "Fixed conversation order shared by conditions; all condition and seed choices are logged."
+  },
+  "checkpoint_selection": "Maximum validation Macro-F1; first epoch wins ties. The held-out event is evaluated once after checkpoint restoration.",
+  "primary_metric": "Macro-F1 over rumor and non-rumor classes, computed from pooled out-of-fold predictions per seed.",
+  "secondary_metrics": ["rumor-class F1", "non-rumor-class F1", "balanced accuracy", "accuracy", "precision", "recall"],
+  "paired_analysis": "Compare both conditions on identical held-out conversations. Report per-seed out-of-fold results and paired metric differences; do not treat seeds as independent data samples or claim a p-value from seed variation alone.",
+  "incomplete_data_policy": "Exclude unclear labels and any thread whose structure node lacks a tweet JSON; record every exclusion. Do not synthesize missing text. Retain multiple top-level components as an observed forest, mark each component root, and do not invent reply links between components.",
+  "prohibited_after_test": "Do not use held-out event outcomes to alter the matching rule, hyperparameters, model architecture, or checkpoint selection. Any follow-up design becomes a new exploratory protocol.",
+  "interpretation_limit": "The dataset supplies reply structure and binary rumor labels, not verified repost-source IDs. The treatment is inferred exact-content links. Results test whether this specified graph intervention helps on these events; they do not establish universal importance."
+}
